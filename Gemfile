@@ -22,12 +22,23 @@ gem 'puma', '~> 5.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
+# Interactors are used to encapsulate your application's business logic.
+# Each interactor represents one thing that your application does.
+gem 'interactor', '~> 3.1'
+
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
 group :development, :test do
   #Read hiden file
   gem 'dotenv-rails'
+
+  gem 'factory_bot_rails'
+  gem 'faker'
+
+  gem 'rspec-rails'
+
+  gem 'fuubar'
   
    # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: :mri
@@ -37,6 +48,17 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'pundit-matchers', '~> 1.7.0'
+  gem 'rails-controller-testing'
+  gem 'rspec-mocks'
+  gem 'shoulda-callback-matchers', '~> 1.1', '>= 1.1.4'
+  gem 'shoulda-matchers'
+  gem 'simplecov', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
